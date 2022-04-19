@@ -1,0 +1,35 @@
+* Block mart
+A decentralized, ERC-721 based market place standard.
+** Concept
+Free yourself from the constraint's of centralized markets. This standard will give the opportunity for /anyone/ to buy, sell, and list items on an EVM blockchain. Trust is-built through existing mechanism's on the blockchain (Proof of humanity, tip transaction, etc).
+** Standard
+It's simple - dead simple.
+A simple ERC721 token with JSON metadata hosted on IPFS (or where ever I don't give a crap)
+#+begin_src javascript
+{
+    title: "Freedom",
+    price 0,
+    desc: "what you gain when you decentralize your world",
+    gpg_pub: "5DC056652A1C2C1A998EBB5FFA7FD7519088BD89"
+    images []
+}
+#+end_src
+To purchase something simply send a transaction to the seller with this metadata
+#+begin_src javascript
+!!BLOCKMART!!
+{
+    itm_num 0,
+    shipping_data: "EnCRYpTEd WITh YOur Gpg KEY"
+}
+#+end_src
+If something goes wrong the standard requires the use of status.im or the email in ENS meta data if available. No money flows through any "trusted" medium unless desired by the customer (e.i using some sort of escrow that sends an empty transaction with the metadata). Mediumes fir establishing trust already exist on the block chain, no need to reinvent the wheel or for you to trust more of my code than needed.
+
+If you want to promote a good lister and increase there reputation, tip them with this in the metadata and clients can add the tipped eth amount to their trust score:
+#+begin_src
+blockmart_tip
+#+end_src
+
+Simple, open, uncensorable
+
+
+Some of us believe various forms of strong cryptography will cause the power of the state to decline, perhaps even collapse fairly abruptly. We believe the expansion into cyberspace, with secure communications, digital money, anonymity and pseudonymity, and other crypto-mediated interactions, will profoundly change the nature of economies and social interactions. Governments will have a hard time collecting taxes, regulating the behavior of individuals and corporations (small ones at least), and generally coercing folks when it can't even tell what continent folks are on! - Timothy C. May, crypto anarchist
