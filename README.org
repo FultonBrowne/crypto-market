@@ -8,10 +8,10 @@ A simple ERC721 token with JSON metadata hosted on IPFS (or where ever I don't g
 #+begin_src javascript
 {
     title: "Freedom",
-    price 0,
+    price: 0,
     desc: "what you gain when you decentralize your world",
-    gpg_pub: "5DC056652A1C2C1A998EBB5FFA7FD7519088BD89"
-    images []
+    gpg_pub: "5DC056652A1C2C1A998EBB5FFA7FD7519088BD89",
+    images: []
 }
 #+end_src
 To purchase something simply send a transaction to the seller with this metadata
@@ -31,5 +31,6 @@ blockmart_tip
 
 Simple, open, uncensorable
 
+*We can probably add an optional, more robust trust system, I am open too any and all ideas*
 
 Some of us believe various forms of strong cryptography will cause the power of the state to decline, perhaps even collapse fairly abruptly. We believe the expansion into cyberspace, with secure communications, digital money, anonymity and pseudonymity, and other crypto-mediated interactions, will profoundly change the nature of economies and social interactions. Governments will have a hard time collecting taxes, regulating the behavior of individuals and corporations (small ones at least), and generally coercing folks when it can't even tell what continent folks are on! - Timothy C. May, crypto anarchist
