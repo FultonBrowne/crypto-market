@@ -6,11 +6,11 @@ import (
 	"fmt"
 )
 
-type listing {
-	title	string
-	price	int
-	desc	string
-	gpg_pub	string
+type listing struct {
+	title	string,
+	price	int,
+	desc	string,
+	gpg_pub	string,
 	images	[]string
 }
 
