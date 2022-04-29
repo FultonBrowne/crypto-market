@@ -28,10 +28,27 @@ func createlisting(title string, price int, desc string,
 	jsonlisting, _ := json.Marshal(listing)
 	req, err := http.NewRequest(http.MethodPut,
 		ipfsendpoint + "/ipfs/v0/add", bytes.NewBuffer(json))
-	req.Header.Set("Content-Type", "application/json; charset=utf-8")
+	req.Header.Set("Content-Type", "application/json; charset=utf-8") //TODO Set content type
+}
 
+func listingstring(input string){
+	wordlist := strings.FieldsFunc(s, func(r rune) bool {
+		if r == ‘,’ {
+	 		return true
+		}
+		return false
+	})
 
-
+	if (len(wordlist) < 5){
+		errors.new("Format error")
+	}
+	createlisting(
+		wordlist[0],
+		wordlist[1],
+		wordlist[2],
+		wordlist[3],
+		//TODO range 4 to end
+	)
 }
 func main() {
 	interactive := flag.Bool("i", false, "Create a listing in interactive mode")
@@ -39,5 +56,17 @@ func main() {
 	pipe := flag.Bool("p" false, "Create listings in pipe mode")
 	flag.Parse()
 
+	if(pipe){
+
+	}
+	else if(interactive){
+
+	}
+	else if(oneshot){
+
+	}
+	else if(orderbook){
+
+	}
 	errors.new("No action given. see README.org for operation instructions")
 }
