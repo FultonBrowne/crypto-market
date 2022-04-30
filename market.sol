@@ -12,7 +12,8 @@ contract StoreListings is ERC721URIStorage {
 
     constructor() ERC721("StoreListing", "ITM") {}
 
-    mapping(address => uint) public tips;
+    mapping(address => uint256) public tips;
+    mapping(uint256 => uint256) public prices;
     function createListing(address lister, string memory tokenURI, uint256 price) public
 returns (uint256)
     {
@@ -20,13 +21,14 @@ returns (uint256)
 
         uint256 newItemId = _tokenIds.current();
         _mint(lister, newItemId);
+        prices[newItemId] = prices
         _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
     }
 
     function buy(uint256 tokenId) public{
-             tokenprice = //TODO
+             tokenprice = prices[tokenId]
              require(msg.value == tokenprice, "Check price")
              //Get owner of items address
              to = ownerOf(tokenId)
