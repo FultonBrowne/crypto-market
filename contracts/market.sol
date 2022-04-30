@@ -13,13 +13,13 @@ contract StoreListings is ERC721URIStorage {
 
     mapping(address => uint256) public tips;
     mapping(uint256 => uint256) public prices;
-    function createListing(address lister, string memory tokenURI, uint256 price) public
+    function createListing(string memory tokenURI, uint256 price) public
 returns (uint256)
     {
         _tokenIds.increment();
 
         uint256 newItemId = _tokenIds.current();
-        _mint(lister, newItemId);
+        _mint(msg.sender, newItemId);
         prices[newItemId] = price;
         _setTokenURI(newItemId, tokenURI);
 
