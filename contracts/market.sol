@@ -20,26 +20,26 @@ returns (uint256)
 
         uint256 newItemId = _tokenIds.current();
         _mint(lister, newItemId);
-        prices[newItemId] = prices;
+        prices[newItemId] = price;
         _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
     }
 
-    function buy(uint256 tokenId) public{
-             tokenprice = prices[tokenId];
+    function buy(uint256 tokenId) payable public{
+             uint256 tokenprice = prices[tokenId];
              require(msg.value == tokenprice, "Check price");
              //Get owner of items address
-             to = ownerOf(tokenId);
-             to.send(msg.value);
+             address payable to = payable(ownerOf(tokenId));
+             to.transfer(msg.value);
     }
 
-    function tip(address to) public{
-             to.send(msg.value);
+    function tip(address payable to) payable public{
+             to.transfer(msg.value);
              tips[to] += msg.value;
     }
 
-    function tipScore(address userAddress) public constant returns (uint) {
+    function tipScore(address userAddress) public returns (uint256) {
              return tips[userAddress];
     }
 }
