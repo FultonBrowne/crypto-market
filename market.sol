@@ -1,4 +1,3 @@
-// contracts/GameItem.sol
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
@@ -21,26 +20,26 @@ returns (uint256)
 
         uint256 newItemId = _tokenIds.current();
         _mint(lister, newItemId);
-        prices[newItemId] = prices
+        prices[newItemId] = prices;
         _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
     }
 
     function buy(uint256 tokenId) public{
-             tokenprice = prices[tokenId]
-             require(msg.value == tokenprice, "Check price")
+             tokenprice = prices[tokenId];
+             require(msg.value == tokenprice, "Check price");
              //Get owner of items address
-             to = ownerOf(tokenId)
-             to.send(msg.value)
+             to = ownerOf(tokenId);
+             to.send(msg.value);
     }
 
     function tip(address to) public{
-             to.send(msg.value)
-             tips[to] += msg.value
+             to.send(msg.value);
+             tips[to] += msg.value;
     }
 
     function tipScore(address userAddress) public constant returns (uint) {
-             return tips[userAddress]
+             return tips[userAddress];
     }
 }
